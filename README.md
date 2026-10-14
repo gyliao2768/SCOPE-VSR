@@ -85,9 +85,9 @@ pip install -r requirements.txt
 ## 🔗 Contents
 
 1. [Datasets](#datasets)
-2. [Models]
-3. [Training]
-4. [Testing]
+2. Models
+3. Training
+4. Testing
 5. [Results](#results)
 6. [Citation](#citation)
 7. [Acknowledgements](#acknowledgements)
@@ -189,7 +189,9 @@ python eval_metrics.py \
 
 ## <a name="results"></a>🔎 Results
 
+<!--
 We evaluate GraCo-VSR on synthetic datasets (UDM10, YouHQ40, and SCOPE-test) and real-world datasets (RealVSR and REDS30). Quantitative and qualitative results will be added after the paper artifacts are released.
+-->
 
 <details open>
 <summary>Quantitative Results (click to expand)</summary>
@@ -216,7 +218,7 @@ We evaluate GraCo-VSR on synthetic datasets (UDM10, YouHQ40, and SCOPE-test) and
 
   <details>
   <summary>More Qualitative Results</summary>
-  
+
   - More results on UDM10 and SCOPE-test (Fig. 9 in the appendix)
   <p align="center">
     <img width="900" src="assets/supp_qualitative_1.png">
@@ -250,7 +252,7 @@ If you find the code helpful in your research or work, please cite the following
 
 ## <a name="acknowledgements"></a>💡 Acknowledgements
 
-SCOPE-VSR is curated from OpenVid-HD, UltraVideo, MiraData, HumanVid, and HOIGen. We thank the authors and maintainers of these datasets. Additional acknowledgements for codebases and pretrained models will be added with the implementation release.
+We construct our SCOPE-VSR from [OpenVid-1M](https://huggingface.co/datasets/nkp37/OpenVid-1M), [UltraVideo](https://huggingface.co/datasets/APRIL-AIGC/UltraVideo), [MiraData](https://huggingface.co/datasets/TencentARC/MiraData), [HumanVid](https://humanvid.github.io/), and [HOIGen-1M](https://huggingface.co/datasets/HOIGen/HOIGen-1M). We sincerely thank the authors and maintainers of these datasets. Additional acknowledgements for codebases and pretrained models will be added with the implementation release.
 
 <!--
 ## License
