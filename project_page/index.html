@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution">
+  <meta name="description" content="Scope-VSR introduces a structured curation pipeline, a broad-coverage VSR dataset, and GraCo-VSR for one-step video restoration.">
+  <meta name="keywords" content="video super-resolution, dataset curation, diffusion model, video restoration, computer vision">
+  <meta name="author" content="Gengyu Liao, Yechun Yong, Zheng Chen, Jianze Li, Ziqing Zhang, Linghe Kong, Yulun Zhang">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Shanghai Jiao Tong University">
+  <meta property="og:title" content="Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution">
+  <meta property="og:description" content="A structured curation pipeline, broad-coverage VSR dataset, and one-step video restoration framework.">
+  <meta property="og:image" content="static/images/semantic_atlas.png">
+  <meta property="og:image:alt" content="The semantic atlas of SCOPE-VSR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution">
+  <meta name="twitter:description" content="A structured curation pipeline, broad-coverage VSR dataset, and one-step video restoration framework.">
+  <meta name="twitter:image" content="static/images/semantic_atlas.png">
+  <meta name="citation_title" content="Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution">
+  <meta name="citation_author" content="Liao, Gengyu">
+  <meta name="citation_author" content="Yong, Yechun">
+  <meta name="citation_author" content="Chen, Zheng">
+  <meta name="citation_author" content="Li, Jianze">
+  <meta name="citation_author" content="Zhang, Ziqing">
+  <meta name="citation_author" content="Kong, Linghe">
+  <meta name="citation_author" content="Zhang, Yulun">
+  <meta name="citation_publication_date" content="2027">
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <title>Scope-VSR | Academic Project Page</title>
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  <link rel="stylesheet" href="static/css/fonts.css">
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution",
+    "description": "A structured curation pipeline, broad-coverage VSR dataset, and one-step video restoration framework.",
+    "author": [
+      {"@type":"Person","name":"Gengyu Liao","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}},
+      {"@type":"Person","name":"Yechun Yong","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}},
+      {"@type":"Person","name":"Zheng Chen","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}},
+      {"@type":"Person","name":"Jianze Li","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}},
+      {"@type":"Person","name":"Ziqing Zhang","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}},
+      {"@type":"Person","name":"Linghe Kong","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}},
+      {"@type":"Person","name":"Yulun Zhang","affiliation":{"@type":"Organization","name":"Shanghai Jiao Tong University"}}
+    ],
+    "datePublished": "2027",
+    "keywords": ["video super-resolution", "dataset curation", "diffusion model", "video restoration"],
+    "isAccessibleForFree": true
+  }
+  </script>
+</head>
+<body>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-fluid page-container">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><a href="https://github.com/nunglaanha" target="_blank">Gengyu Liao</a><sup>*</sup>,</span>
+                <span class="author-block">Yechun Yong<sup>*</sup>,</span>
+                <span class="author-block"><a href="https://zhengchen1999.github.io/" target="_blank">Zheng Chen</a><sup>*</sup>,</span>
+                <span class="author-block">Jianze Li,</span>
+                <span class="author-block">Ziqing Zhang,</span>
+                <span class="author-block"><a href="https://www.cs.sjtu.edu.cn/~linghe.kong/" target="_blank">Linghe Kong</a>,</span>
+                <span class="author-block"><a href="https://yulunzhang.com/" target="_blank">Yulun Zhang</a><sup>†</sup></span>
+              </div>
+              <div class="is-size-5 publication-institutions">
+                <span class="institution-block"><sup>1</sup>Shanghai Jiao Tong University, China</span>
+                <span class="coorespond"><small><br><sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author</small></span>
+                <div class="review-status">Under Review</div>
+              </div>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" aria-disabled="true" title="Coming soon"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
+                  <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" aria-disabled="true" title="Coming soon"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a></span>
+                  <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" aria-disabled="true" title="Coming soon"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Supplementary</span></a></span>
+                  <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" aria-disabled="true" title="Coming soon"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-fluid page-container">
+        <div class="hero-body">
+          <img class="project-figure" src="static/images/semantic_atlas.png" alt="The semantic atlas of SCOPE-VSR" loading="eager">
+          <h2 class="subtitle has-text-centered">The semantic atlas of SCOPE-VSR. Colors denote topics, with representative frames illustrating the diverse semantic content of our dataset.</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-fluid page-container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-thirds abstract-column">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>Diffusion models have shown superior performance in video super-resolution (VSR). However, restoring diverse real-world content remains challenging due to the lack of balanced semantic coverage in existing training data. In this paper, we introduce a structured curation pipeline for open-domain VSR, SCOPE. In this pipeline, we combine task-oriented video selection with hierarchical semantic rebalancing. Applying this pipeline to a large-scale collection of data sources, we construct the SCOPE-VSR dataset for training and SCOPE-test for testing. SCOPE-VSR has approximately 27k videos with a balanced and diverse coverage of various real-world scenarios and subjects. In addition, we propose GraCo-VSR, a novel framework for one-step video restoration. GraCo-VSR adopts a reliability-aware design with explicit supervision to reduce degradation-induced distortions in motion and texture guidance. This design enables the model to better leverage the diverse training content in SCOPE-VSR, thereby supporting generalization across varied scenarios. Experiments demonstrate that our model exhibits strong performance on both perceptual fidelity and visual quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero figure-section">
+      <div class="container is-fluid page-container">
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <h2 class="title is-3 has-text-left">Method</h2>
+            <figure class="image project-figure-wrap">
+              <img src="static/images/SCOPE_pipeline.png" alt="Overview of the SCOPE data curation pipeline" loading="lazy">
+              <figcaption class="title is-5">Overview of the SCOPE data construction pipeline</figcaption>
+            </figure>
+            <div class="content has-text-justified" style="margin-top: 1rem;">
+              <p>We propose SCOPE, a systematic pipeline that combines multi-stage curation with semantic rebalancing. We collect approximately 0.6 million video clips from multiple domains, including <a href="https://huggingface.co/datasets/nkp37/OpenVid-1M" target="_blank">OpenVid-HD</a>, <a href="https://huggingface.co/datasets/APRIL-AIGC/UltraVideo" target="_blank">UltraVideo</a>, <a href="https://huggingface.co/datasets/TencentARC/MiraData" target="_blank">MiraData</a>, <a href="https://humanvid.github.io/" target="_blank">HumanVid</a>, and <a href="https://huggingface.co/datasets/HOIGen/HOIGen-1M" target="_blank">HOIGen</a>. The original collection contains. By applying the pipeline, we extract 27,351 clips to form the final SCOPE-VSR dataset.</p>
+            </div>
+            <figure class="image project-figure-wrap">
+              <img src="static/images/GraCo-VSR.png" alt="Overview of the GraCo-VSR framework" loading="lazy">
+              <figcaption class="title is-5">Illustration of the GraCo-VSR framework</figcaption>
+            </figure>
+            <div class="content has-text-justified" style="margin-top: 1rem;">
+              <p>We introduce GraCo-VSR, a one-step video restoration framework which provides reliable and granularity-aligned guidance for open-domain VSR. The Reliability-Aware Texture Encoder (RATE) is designed to extract confidence-weighted local texture cues, while the Clip-Level Dynamics Conditioning (CLDC) is designed to provide robust clip-level motion guidance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-small is-light">
+      <div class="hero-body">
+        <div class="container is-fluid page-container">
+          <h2 class="title is-3 has-text-left">Results</h2>
+          <details open>
+            <summary class="title is-5">Quantitative Results (click to expand)</summary>
+            <div class="content">
+              <ul><li class="title is-6">Quantitative results on synthetic and real-world datasets (Tab. 1 of the main paper)</li></ul>
+              <img class="project-figure" src="static/images/tab_quantitative.png" alt="Quantitative comparison with state-of-the-art video super-resolution methods" loading="lazy">
+            </div>
+          </details>
+          <details open>
+            <summary class="title is-5">Qualitative Results (click to expand)</summary>
+            <div class="content">
+              <ul><li class="title is-6">Visual comparisons on the real-world RealVSR dataset (Fig. 6 of the main paper)</li></ul>
+              <img class="project-figure" src="static/images/main_qualitative_1.png" alt="Qualitative comparison on RealVSR" loading="lazy">
+              <ul><li class="title is-6">Visual comparisons on the synthetic YouHQ40 and SCOPE-test datasets (Fig. 7 of the main paper)</li></ul>
+              <img class="project-figure" src="static/images/main_qualitative_2.png" alt="Qualitative comparison on YouHQ40 and SCOPE-test" loading="lazy">
+              <details>
+                <summary class="title is-6" style="margin-left: -0.8em;">More Results (click to expand)</summary>
+                <div class="content">
+                  <ul><li class="title is-6">Additional visual comparisons on UDM10 and SCOPE-test</li></ul>
+                  <img class="project-figure" src="static/images/supp_qualitative_1.png" alt="Additional qualitative results on UDM10 and SCOPE-test" loading="lazy">
+                  <ul><li class="title is-6">Additional visual comparisons on RealVSR</li></ul>
+                  <img class="project-figure" src="static/images/supp_qualitative_2.png" alt="Additional qualitative results on RealVSR" loading="lazy">
+                </div>
+              </details>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-fluid page-container content">
+        <h2 class="title">BibTeX</h2>
+        <pre style="background-color: #ffffff; overflow-x: auto; white-space: pre-wrap;"><code>@article{liao2027scopevsr,
+  title={Scope-VSR: A Broad-Coverage Training Dataset for Video Super-Resolution},
+  author={Liao, Gengyu and Yong, Yechun and Chen, Zheng and Li, Jianze and Zhang, Ziqing and Kong, Linghe and Zhang, Yulun},
+  journal={arXiv preprint},
+  year={2027}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page. You are free to borrow the source code of this website; we just ask that you link back to this page in the footer.<br>This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

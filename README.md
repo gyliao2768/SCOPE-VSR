@@ -46,7 +46,7 @@
 
 ### SCOPE Data Curation Pipeline
 
-![](./assets/SCOPE_pipeline_raw.png)
+![](./assets/SCOPE_pipeline.png)
 
 ---
 
