@@ -21,7 +21,7 @@
 
 #### 🔥 News
 
-- **2026-10-14:** This repository is being prepared for release.
+- **2026-10-15:** This repository is released.
 
 ---
 
