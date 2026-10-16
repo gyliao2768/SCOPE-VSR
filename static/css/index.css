@@ -312,23 +312,23 @@ body,
   max-width: none;
 }
 
-.page-container {
+.container.is-fluid.page-container {
   width: 70%;
-  max-width: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media screen and (max-width: 1024px) {
-  .page-container {
+  .container.is-fluid.page-container {
     width: 86%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .page-container {
+  .container.is-fluid.page-container {
     width: 100%;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
