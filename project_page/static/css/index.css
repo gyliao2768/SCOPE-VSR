@@ -202,14 +202,44 @@ details .content > img {
   align-items: center;
 }
 
+.dataset-video-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #111827;
+  box-shadow: 0 5px 16px rgba(31, 57, 90, 0.14);
+}
+
+.dataset-video-label {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.76);
+  color: #ffffff;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: clamp(0.75rem, 1.05vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+}
+
 .dataset-video-panel video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #111827;
-  border-radius: 10px;
-  box-shadow: 0 5px 16px rgba(31, 57, 90, 0.14);
 }
 
 .dataset-carousel-button {
@@ -313,7 +343,7 @@ body,
 }
 
 .container.is-fluid.page-container {
-  width: 70%;
+  width: 60%;
   max-width: none;
   margin-left: auto;
   margin-right: auto;
