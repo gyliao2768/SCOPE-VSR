@@ -119,6 +119,84 @@ function setupVideoCarouselAutoplay() {
     });
 }
 
+// Dataset video panels: four videos per slide with buttons, dots, keyboard, and touch navigation.
+function setupDatasetCarousel() {
+    const carousel = document.querySelector('.dataset-carousel');
+    if (!carousel) return;
+
+    const viewport = carousel.querySelector('.dataset-carousel-viewport');
+    const track = carousel.querySelector('.dataset-carousel-track');
+    const panels = Array.from(carousel.querySelectorAll('.dataset-video-panel'));
+    const previousButton = carousel.querySelector('.dataset-carousel-previous');
+    const nextButton = carousel.querySelector('.dataset-carousel-next');
+    const pagination = carousel.querySelector('.dataset-carousel-pagination');
+    let activePanel = 0;
+    let touchStartX = 0;
+
+    const dots = panels.map(function(_, index) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'dataset-carousel-dot';
+        dot.setAttribute('aria-label', 'Show video panel ' + (index + 1));
+        dot.addEventListener('click', function() {
+            showPanel(index);
+        });
+        pagination.appendChild(dot);
+        return dot;
+    });
+
+    function showPanel(index) {
+        activePanel = Math.max(0, Math.min(index, panels.length - 1));
+        track.style.transform = 'translateX(-' + (activePanel * 100) + '%)';
+        previousButton.disabled = activePanel === 0;
+        nextButton.disabled = activePanel === panels.length - 1;
+        dots.forEach(function(dot, dotIndex) {
+            dot.classList.toggle('is-active', dotIndex === activePanel);
+            dot.setAttribute('aria-current', dotIndex === activePanel ? 'true' : 'false');
+        });
+        panels.forEach(function(panel, panelIndex) {
+            panel.setAttribute('aria-hidden', panelIndex === activePanel ? 'false' : 'true');
+            if (panelIndex === activePanel) {
+                panel.querySelectorAll('video').forEach(function(video) {
+                    video.play().catch(function() {
+                        // Muted autoplay can still be blocked by a visitor's browser settings.
+                    });
+                });
+            } else {
+                panel.querySelectorAll('video').forEach(function(video) {
+                    video.pause();
+                });
+            }
+        });
+    }
+
+    previousButton.addEventListener('click', function() {
+        showPanel(activePanel - 1);
+    });
+    nextButton.addEventListener('click', function() {
+        showPanel(activePanel + 1);
+    });
+    viewport.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            showPanel(activePanel - 1);
+        } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            showPanel(activePanel + 1);
+        }
+    });
+    viewport.addEventListener('touchstart', function(event) {
+        touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    viewport.addEventListener('touchend', function(event) {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) < 45) return;
+        showPanel(activePanel + (distance < 0 ? 1 : -1));
+    }, { passive: true });
+
+    showPanel(0);
+}
+
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
 
@@ -138,5 +216,6 @@ $(document).ready(function() {
     
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
+    setupDatasetCarousel();
 
 })
